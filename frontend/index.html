@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Sparks - Civic Issue Reporting Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Bright Sparks</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#report" class="nav-link">Report Issue</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#profile" class="nav-link" id="profileBtn">Profile</a></li>
+                <li><a href="#logout" class="nav-link" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Make Your City Better</h2>
+            <p>Report civic issues and track their resolution in real-time</p>
+            <button class="btn btn-primary" id="reportBtn">Report an Issue</button>
+            <button class="btn btn-secondary" id="loginBtn">Login / Register</button>
+        </div>
+    </section>
+
+    <!-- Modal for Login/Registration -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
+
+                <!-- Login Tab -->
+                <div id="login-tab" class="tab-content active">
+                    <form id="loginForm">
+                        <h3>Login to Your Account</h3>
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <p class="toggle-text">Don't have an account? <a href="#" class="toggle-auth">Register here</a></p>
+                    </form>
+                </div>
+
+                <!-- Registration Tab -->
+                <div id="register-tab" class="tab-content">
+                    <form id="registerForm">
+                        <h3>Create Your Account</h3>
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Mobile Number" required>
+                        <input type="text" placeholder="Government ID (Optional)">
+                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Confirm Password" required>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <p class="toggle-text">Already have an account? <a href="#" class="toggle-auth">Login here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Issue Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content large">
+            <span class="close">&times;</span>
+            <h2>Report a Civic Issue</h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="category">Issue Category</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="pothole">Pothole</option>
+                        <option value="garbage">Garbage Accumulation</option>
+                        <option value="streetlight">Broken Streetlight</option>
+                        <option value="water">Water Leakage</option>
+                        <option value="road">Damaged Road</option>
+                        <option value="dumping">Illegal Dumping</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Describe the issue in detail" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Photo/Video</label>
+                    <input type="file" id="photo" accept="image/*,video/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Address or Location" required>
+                    <button type="button" id="gpsBtn" class="btn btn-secondary btn-small">Get Current Location</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" id="latitude" placeholder="Auto-captured" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" id="longitude" placeholder="Auto-captured" readonly>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2>My Complaints</h2>
+            <div class="complaints-list" id="complaintsList">
+                <!-- Complaints will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile">
+        <div class="container">
+            <h2>My Profile</h2>
+            <div class="profile-content" id="profileContent">
+                <!-- Profile details will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bright Sparks. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
